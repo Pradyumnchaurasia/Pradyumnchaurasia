@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Dress Try-On</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Virtual Dress Try-On</h1>
+    </header>
+
+    <main>
+        <div id="tryon-container" class="video-wrapper">
+            <video id="video" autoplay playsinline></video>
+            <!-- Overlay image will be placed here -->
+            <img id="dress-overlay" class="overlay-image" src="" alt="Dress overlay" style="display: none;">
+        </div>
+
+        <section id="controls">
+            <h2>Select a dress</h2>
+            <div class="dress-options">
+                <!-- Dress thumbnails -->
+                <img class="dress-thumb" data-src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress1.png" src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress1_thumb.png" alt="Dress 1">
+                <img class="dress-thumb" data-src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress2.png" src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress2_thumb.png" alt="Dress 2">
+                <img class="dress-thumb" data-src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress3.png" src="https://raw.githubusercontent.com/iamspruce/temp-intro-assets/main/dress3_thumb.png" alt="Dress 3">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Demo created with HTML5, CSS and JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
