@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DressUp - Virtual Dress Try-On</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1 class="logo">DressUp</h1>
+            <p class="tagline">Try on dresses virtually with AI</p>
+        </header>
+
+        <main class="main-content">
+            <div class="camera-section">
+                <div class="camera-container">
+                    <video id="video" autoplay muted playsinline></video>
+                    <canvas id="canvas"></canvas>
+                    <div id="dress-overlay" class="dress-overlay"></div>
+                </div>
+                
+                <div class="camera-controls">
+                    <button id="start-camera" class="btn btn-primary">Start Camera</button>
+                    <button id="stop-camera" class="btn btn-secondary" disabled>Stop Camera</button>
+                    <button id="capture" class="btn btn-accent" disabled>Capture Photo</button>
+                </div>
+            </div>
+
+            <div class="dress-selection">
+                <h2>Choose Your Dress</h2>
+                <div class="dress-grid">
+                    <div class="dress-card active" data-dress="elegant-black">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjMDAwMDAwIiByeD0iMTAiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iODAiIHg9IjIwIiB5PSIyMCIgdmlld0JveD0iMCAwIDYwIDgwIiBmaWxsPSJub25lIj4KPHA+YXRoIGQ9Ik0zMCAwQzQ2LjU2ODUgMCA2MCA3LjE2MzQ0IDYwIDE2VjY0QzYwIDcyLjgzNjYgNTMuNzMyMSA4MCA0NiA4MEgxNEM2LjI2Nzk1IDgwIDAgNzIuODM2NiAwIDY0VjE2QzAgNy4xNjM0NCAxMy40MzE1IDAgMzAgMFoiIGZpbGw9IiMyMjIyMjIiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Elegant Black Dress">
+                        <h3>Elegant Black</h3>
+                    </div>
+                    
+                    <div class="dress-card" data-dress="summer-floral">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkY2QkI1IiByeD0iMTAiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iODAiIHg9IjIwIiB5PSIyMCIgdmlld0JveD0iMCAwIDYwIDgwIiBmaWxsPSJub25lIj4KPHA+YXRoIGQ9Ik0zMCAwQzQ2LjU2ODUgMCA2MCA3LjE2MzQ0IDYwIDE2VjY0QzYwIDcyLjgzNjYgNTMuNzMyMSA4MCA0NiA4MEgxNEM2LjI2Nzk1IDgwIDAgNzIuODM2NiAwIDY0VjE2QzAgNy4xNjM0NCAxMy40MzE1IDAgMzAgMFoiIGZpbGw9IiNGRkM5REEiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Summer Floral Dress">
+                        <h3>Summer Floral</h3>
+                    </div>
+                    
+                    <div class="dress-card" data-dress="royal-blue">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjMUU0MEFGIiByeD0iMTAiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iODAiIHg9IjIwIiB5PSIyMCIgdmlld0JveD0iMCAwIDYwIDgwIiBmaWxsPSJub25lIj4KPHA+YXRoIGQ9Ik0zMCAwQzQ2LjU2ODUgMCA2MCA3LjE2MzQ0IDYwIDE2VjY0QzYwIDcyLjgzNjYgNTMuNzMyMSA4MCA0NiA4MEgxNEM2LjI2Nzk1IDgwIDAgNzIuODM2NiAwIDY0VjE2QzAgNy4xNjM0NCAxMy40MzE1IDAgMzAgMFoiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Royal Blue Dress">
+                        <h3>Royal Blue</h3>
+                    </div>
+                    
+                    <div class="dress-card" data-dress="red-cocktail">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjREMyNjI2IiByeD0iMTAiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iODAiIHg9IjIwIiB5PSIyMCIgdmlld0JveD0iMCAwIDYwIDgwIiBmaWxsPSJub25lIj4KPHA+YXRoIGQ9Ik0zMCAwQzQ2LjU2ODUgMCA2MCA3LjE2MzQ0IDYwIDE2VjY0QzYwIDcyLjgzNjYgNTMuNzMyMSA4MCA0NiA4MEgxNEM2LjI2Nzk1IDgwIDAgNzIuODM2NiAwIDY0VjE2QzAgNy4xNjM0NCAxMy40MzE1IDAgMzAgMFoiIGZpbGw9IiNGRjU3NTciLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Red Cocktail Dress">
+                        <h3>Red Cocktail</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="adjustment-controls">
+                <h3>Adjust Fit</h3>
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label for="dress-size">Size:</label>
+                        <input type="range" id="dress-size" min="0.5" max="1.5" step="0.1" value="1">
+                        <span id="size-value">1.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="dress-position-y">Vertical Position:</label>
+                        <input type="range" id="dress-position-y" min="-50" max="50" step="5" value="0">
+                        <span id="position-y-value">0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="dress-opacity">Transparency:</label>
+                        <input type="range" id="dress-opacity" min="0.3" max="1" step="0.1" value="0.8">
+                        <span id="opacity-value">0.8</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="captured-photos" class="captured-photos" style="display: none;">
+            <h3>Captured Photos</h3>
+            <div class="photos-grid" id="photos-grid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
